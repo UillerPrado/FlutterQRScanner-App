@@ -17,7 +17,7 @@ class HomePage extends StatefulWidget {
 }
 
 class HomePageState extends State<HomePage> {
-  String result = "Hey there !";
+  String result = "Toque no botão abaixo";
 
   Future _scanQR() async {
     try {
@@ -28,20 +28,20 @@ class HomePageState extends State<HomePage> {
     } on PlatformException catch (ex) {
       if (ex.code == BarcodeScanner.CameraAccessDenied) {
         setState(() {
-          result = "Camera permission was denied";
+          result = "Ixe.. Sem permissão pra acessar a câmera!";
         });
       } else {
         setState(() {
-          result = "Unknown Error $ex";
+          result = "Puts. Rolou esse ERRO: $ex";
         });
       }
     } on FormatException {
       setState(() {
-        result = "You pressed the back button before scanning anything";
+        result = "É doido(a) é?! Você apertou o botão Voltar antes de digitalizar qualquer coisa.";
       });
     } catch (ex) {
       setState(() {
-        result = "Unknown Error $ex";
+        result = "Puts, deu ERRO: $ex";
       });
     }
   }
@@ -50,7 +50,8 @@ class HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("QR Scanner"),
+        title: Text("Thunder App: Visão além do alcance."),
+
       ),
       body: Center(
         child: Text(
@@ -60,7 +61,7 @@ class HomePageState extends State<HomePage> {
       ),
       floatingActionButton: FloatingActionButton.extended(
         icon: Icon(Icons.camera_alt),
-        label: Text("Scan"),
+        label: Text("Scanear código QR"),
         onPressed: _scanQR,
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,

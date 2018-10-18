@@ -14,6 +14,12 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
+flutter_launcher_icons: "^0.6.1"
+
+flutter_icons:
+  android: true # indica que colocaremos o ícone novo no Android
+  ios: true # indica que colocaremos o ícone novo no iOS
+  image_path: "assets/icon/olho-de-tandera.png" # caminho para o ícone
 
 # For information on the generic Dart part of this file, see the
 # following page: https://www.dartlang.org/tools/pub/pubspec
